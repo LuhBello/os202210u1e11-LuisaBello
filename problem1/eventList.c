@@ -26,7 +26,7 @@ Event *SearchEvent(EventList *this, char *name)
 
         while (recorrido != NULL)
         {
-            if (strcmp(name, recorrido->eventName) == 0)
+            if (*(recorrido->eventName + 2) == *(name + 2) && *(recorrido->eventName + 3) == *(name + 3))
             {
                 return recorrido;
             }
@@ -50,7 +50,7 @@ void AddEvent(EventList *this, Event *event)
     {
         while (recorrido != NULL)
         {
-            if (strcmp(event->eventName, recorrido->eventName) == 0)
+            if (*(recorrido->eventName + 2) == *(event->eventName + 2) && *(recorrido->eventName + 3) == *(event->eventName + 3))
             {
                 return;
             }
