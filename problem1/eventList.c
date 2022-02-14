@@ -69,16 +69,7 @@ void AddEvent(EventList *this, Event *event)
 
 void RemoveEvent(EventList *this, char *name)
 {
-    Event *recorrido = this->head;
-    Event *new_recorrido = SearchEvent(this, name);
-
-    if (new_recorrido == NULL)
-    {
-        return;
-    }
-
-    if (this->isEmpty != 0)
-    {
+     
         Event bandera;
         Event *recorrido = this->head;
         int8_t contador = 0;
@@ -99,8 +90,31 @@ void RemoveEvent(EventList *this, char *name)
                     recorrido->next = recorrido->next->next;
                     break;
                 }
+                else
+                {
+                    contador = contador + 1;
+                    if (contador == 7)
+                    {
+
+                        return;
+                    }
+                }
 
                 recorrido = recorrido->next;
+                contador = contador + 1;
+
+                /*if (recorrido == NULL)
+                {
+                    while (contador != 0)
+                    {
+                        if (!(*(new_recorrido->eventName + 2) == *(name + 2) && *(new_recorrido->eventName + 3) == *(name + 3)))
+                        {
+                            return;
+                        }
+                        new_recorrido = new_recorrido->next;
+                        contador = contador - 1;
+                    }
+                }*/
 
             } while (recorrido != NULL);
 
